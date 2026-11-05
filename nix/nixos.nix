@@ -110,14 +110,14 @@
         };
 
         # Journald configuration (skip Audit, KMsg, etc)
-        services.journald.settings.Journal = {
-          ReadKMsg="no";
-          Audit="no";
-          Storage="volatile";
-          SystemMaxUse="50M";
-          RuntimeMaxUse="10M";
-          MaxRetentionSec="7day";
-          MaxLevelStore="info";
+        services.journald = {
+          # ReadKMsg="no";
+          audit=false;
+          storage="volatile";
+          # SystemMaxUse="50M";
+          # RuntimeMaxUse="10M";
+          # MaxRetentionSec="7day";
+          # MaxLevelStore="info";
         };
 
         services.logrotate.settings.header.maxsize = "50M";
